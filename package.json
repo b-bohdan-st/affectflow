@@ -1,0 +1,44 @@
+{
+  "name": "affectflow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^40.3.0",
+    "electron-builder": "^26.7.0"
+  },
+  "build": {
+    "appId": "com.affectflow.app",
+    "productName": "AffectFlow",
+    "icon": "app/data/images/icon.png",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}

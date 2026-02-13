@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css"> 
+    <title>AffectFlow</title>
+</head>
+<body>
+<div class="app">
+    <header class="topnav">
+        <div class="nav-left">
+            <button class="nav-btn" data-page="home" data-i18n="nav_home">
+                <img class="nav-icon" src="images/1.png"><span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="statistics" data-i18n="nav_stats">
+                <img class="nav-icon" src="images/2.png"><span>Statistics</span>
+            </button>
+            <button class="nav-btn" data-page="profile" data-i18n="nav_profile">
+                <img class="nav-icon" src="images/3.png"><span>Profile</span>
+            </button>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn" data-page="settings" data-i18n="nav_settings">
+                <img class="nav-icon" src="images/4.png"><span>Settings</span>
+            </button>
+        </div>
+    </header>
+    <main class="stack">
+        <section id="home" class="page">
+            <div class="controls-row">
+                <button id="start_btn" data-i18n="start_btn">Start analysis</button>
+                <button id="stop_btn" data-i18n="stop_btn" disabled>Stop</button>
+            </div>
+            <div class="video-area">
+                <video id="video" autoplay muted playsinline style="display:none"></video>
+                <div id="video_label" class="video-placeholder" data-i18n="video_placeholder">
+                    Analysis stopped. Please press button 'Start' to begin analysis.
+                </div>
+            </div>
+            <div class="indicators">
+                <div class="indicator">
+                    <strong data-i18n="attention_text">Attention:</strong> 
+                    <span id="attention_label">-</span>
+                </div>
+                <div class="indicator">
+                    <strong data-i18n="fatigue_text">Fatigue:</strong> 
+                    <span id="fatigue_label">-</span>
+                </div>
+                <div class="indicator primary">
+                    <strong data-i18n="status_text">Current Status:</strong> 
+                    <span id="status_label" data-i18n="status_none">None (analysis stopped)</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="statistics" class="page" style="display:none">
+            <div class="plot-area">
+                <div class="chart-container">
+                    <h3 data-i18n="nav_stats">Attention & Fatigue</h3>
+                    <canvas id="metrics_canvas" class="chart-canvas"></canvas> 
+                </div>
+            </div>
+            <div class="session-row">
+                <label data-i18n="session_label">Session:</label>
+                <select id="session_select">
+                    <option data-i18n="select_session">Select session</option>
+                </select>
+            </div>
+        </section>
+        <section id="profile" class="page" style="display:none">
+            <h2 data-i18n="nav_profile">User Profile</h2>
+            <div class="profile-card">
+                <div class="profile-info-row">
+                    <strong data-i18n="prof_name">Name:</strong> <span>Ivan Mazepa</span>
+                </div>
+                <div class="profile-info-row">
+                    <strong data-i18n="prof_user">Username:</strong> <span>i.mazepa_af</span>
+                </div>
+                <div class="profile-info-row">
+                    <strong data-i18n="prof_email">Email:</strong> <span>ivan.mazepa.official@example.com</span>
+                </div>
+                <div class="profile-info-row">
+                    <strong data-i18n="prof_since">Member Since:</strong> <span>Jan 2024</span>
+                </div>
+                <button id="logout_btn" class="nav-btn logout-btn" data-i18n="logout_btn">Log out</button>
+            </div>
+        </section>
+        <section id="settings" class="page" style="display:none">
+            <div class="settings-grid">
+                <div class="row">
+                    <label data-i18n="theme_label">Theme:</label>
+                    <select id="theme_combo">
+                        <option value="dark" data-i18n="theme_dark">Dark</option>
+                        <option value="light" data-i18n="theme_light">Light</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <label data-i18n="lang_label">Language:</label>
+                    <select id="lang_combo">
+                        <option value="en" data-i18n="lang_en">English</option>
+                        <option value="uk" data-i18n="lang_uk">Українська</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="scripts/script.js"></script>
+
+</body>
+</html>
